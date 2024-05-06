@@ -8,7 +8,7 @@ def bubble_sort(array):
 def selection_sort(array):
 	array_length = len(array)
 	for i_itr in range(array_length):
-		min_idx = 0
+		min_idx = i_itr
 		for j_itr in range(i_itr+1, array_length):
 			if array[j_itr] < array[min_idx]: min_idx = j_itr
 		array[i_itr], array[min_idx] = array[min_idx], array[i_itr]
