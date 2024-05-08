@@ -14,6 +14,11 @@ def selection_sort(array):
 		array[i_itr], array[min_idx] = array[min_idx], array[i_itr]
 	return array
 ##########################################################################################
+# The elements of l layers (l:=1, 2, ..., L) : 2^(l-1)-1, 2^(l-1), ..., 2^l
+# index idx:=1, 2, ..., N
+# [1] -< [2, 3] -< [4, 5, 6, 7] -< [8,  9, 10, 11, 12, 13, 14, 15] -< ... -< [2^(l-1),   2^(l-1)+1, ..., 2^l-1]
+# [0] -< [1, 2] -< [5, 6, 7, 8] -< [9, 10, 11, 12, 13, 14, 15, 16] -< ... -< [2^(l-1)-1, 2^(l-1),   ..., 2^l  ]
+##########################################################################################
 def upheap(array, idx):
 	while idx!=0:
 		parent_idx = int((idx-1)/2)
@@ -31,11 +36,10 @@ def downheap(array, idx):
 			array[parent_idx], array[child_idx] = array[child_idx], array[parent_idx]
 			parent_idx = child_idx
 		else: break
-
 def heap_sort(array):
 	array_length = len(array)
 	for itr in range(array_length): upheap(array, itr)
 	for itr in range(array_length)[::-1]:
 		array[0], array[itr] = array[itr], array[0]
 		downheap(array, itr)
-	
+
