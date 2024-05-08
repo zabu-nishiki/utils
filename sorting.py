@@ -14,22 +14,21 @@ def selection_sort(array):
 		array[i_itr], array[min_idx] = array[min_idx], array[i_itr]
 	return array
 ##########################################################################################
-def upheap(array, child_idx):
-	while child_idx!=0:
-		parent_idx = int((child_idx-1)/2)
-		if array[parent_idx] < array[child_idx]:
-			array[parent_idx], array[child_idx] = array[child_idx], array[parent_idx]
-			child_idx = parent_idx
+def upheap(array, idx):
+	while idx!=0:
+		parent_idx = int((idx-1)/2)
+		if array[parent_idx] < array[idx]:
+			array[parent_idx], array[idx] = array[idx], array[parent_idx]
+			idx = parent_idx
 		else: break
 def downheap(array, idx):
-	if idx==0: return
 	parent_idx = 0
-	while True:
+	while idx!=0:
 		child_idx = 2 * parent_idx + 1
 		if child_idx > idx: break
-			if child_idx<idx and array[child_idx]<array[child-idx+1]: child_idx += 1
+		if child_idx < idx and array[child_idx]<array[child-idx+1]: child_idx += 1
 		if array[parent_idx]<array[child_idx]:
-			array[parent_idx], array[child_idx] = array[child_idx]<array[parent_idx]
+			array[parent_idx], array[child_idx] = array[child_idx], array[parent_idx]
 			parent_idx = child_idx
 		else: break
 
