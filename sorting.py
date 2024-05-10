@@ -1,22 +1,33 @@
 ##########################################################################################
 # Average Calculation | Worst Calculation | Memory Usage | Robustness
 ##########################################################################################
-# Merge Sort    : nlogn | nlogn | n     | True
-# Insertion Sort: n^2   | n^2   | 1     | True
-# Bubble Sort   : n^2   | n^2   | 1     | True
+## Insertion Sort: n^2   | n^2   | 1     | True
+## Bubble Sort   : n^2   | n^2   | 1     | True
+## Selection Sort: n^2   | n^2   | 1     | False
 ##########################################################################################
-# Selection Sort: n^2   | n^2   | 1     | False
+# Merge Sort    : nlogn | nlogn | n     | True
 # Heap Sort     : nlogn | nlogn | 1     | False
 # Shell Sort    : nlogn | n^1.5 | 1     | False
 # Quick Sort    : nlogn | n^2   | nlogn | False
 ##########################################################################################
+def insertion_sort(array):
+	array_length = len(array)
+	for i_itr in range(1, array_length):
+		temp_value = array[i_itr]
+		j_itr = i_itr-1
+		while j_itr>=0 and array[j_itr]>temp_value:
+			array[j_itr+1] = array[j_itr]
+			j_itr-=1
+		array[j_itr+1] = temp_value
+	return array
+
 def bubble_sort(array):
 	array_length = len(array)
 	for i_itr in range(array_length):
 		for j_itr in range(array_length-i_itr-1):
 			if array[j_itr] > array[j_itr+1]: array[j_itr], array[j_itr+1] = array[j_itr+1], array[j_itr]
 	return array
-##########################################################################################
+
 def selection_sort(array):
 	array_length = len(array)
 	for i_itr in range(array_length):
