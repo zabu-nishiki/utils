@@ -1,3 +1,15 @@
+##########################################################################################
+# Average Calculation | Worst Calculation | Memory Usage | Robustness
+##########################################################################################
+# Merge Sort    : nlogn | nlogn | n     | True
+# Insertion Sort: n^2   | n^2   | 1     | True
+# Bubble Sort   : n^2   | n^2   | 1     | True
+##########################################################################################
+# Selection Sort: n^2   | n^2   | 1     | False
+# Heap Sort     : nlogn | nlogn | 1     | False
+# Shell Sort    : nlogn | n^1.5 | 1     | False
+# Quick Sort    : nlogn | n^2   | nlogn | False
+##########################################################################################
 def bubble_sort(array):
 	array_length = len(array)
 	for i_itr in range(array_length):
