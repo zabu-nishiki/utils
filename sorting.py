@@ -10,6 +10,15 @@
 # Shell Sort    : nlogn | n^1.5 | 1     | False
 # Quick Sort    : nlogn | n^2   | nlogn | False
 ##########################################################################################
+def quick_sort(array):
+    array_length = len(array)
+    if array_length<=1: return array
+    pivot = array[array_length//2]
+    left   = [itr for itr in array if itr<pivot]
+    middle = [itr for itr in array if itr==pivot]
+    right  = [itr for itr in array if itr>pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
 def insertion_sort(array):
 	array_length = len(array)
 	for i_itr in range(1, array_length):
